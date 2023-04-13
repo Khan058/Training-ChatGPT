@@ -104,19 +104,19 @@ To any work with the model whether it is fine tuning, validation or testing it o
 
 2. Click "Personal"
    
-   ![OpenAI](G:\My%20Drive\Documentation\Images\step-2-apikey.png)
+   ![OpenAI](images/step-2-apikey.png)
    
    3. Click "View API keys"
       
-      ![View API KEYS](G:\My%20Drive\Documentation\Images\step-3=apikey.png)
+      ![View API KEYS](images/step-3-apikey.png)
    
    4. Click "Create new secret key‍"
       
-      ![Creating Key](G:\My%20Drive\Documentation\Images\step-4-apikey.png)
+      ![Creating Key](images/step-4-apikey.png)
    
    5. Click this copy button.
       
-      ![Copy Key](G:\My%20Drive\Documentation\Images\!step-5-apikey.png)
+      ![Copy Key](images/step-5-apikey.png)
       
       > DIsclaimer: Keep this key at somewhere safe because you would be able to see or copy the key again. You have to create a new key
       > 
@@ -144,7 +144,7 @@ In this step we gather the data upon which the model is to be fine tuned.
 
 Gather the data, and the data should be in this format.
 
-![Data Format](G:\My%20Drive\Documentation\Images\step-1-dataset.PNG)
+![Data Format](images/step-1-dataset.PNG)
 
 For more information how to best way you can prepare your training data visit
 
@@ -174,7 +174,7 @@ Replace the with file name or file path.
 
 Follow the instructions on screen, if it require recomended changes it would prompt those, otherwise it would start its operation
 
-![Preparing Data Tool](C:\Training-ChatGPT\images\preparation-tool.png)
+![Preparing Data Tool](images/preparation-tool.png)
 
 Keep in mind that you would need 2 files
 
@@ -216,7 +216,7 @@ openai api fine_tunes.list
 
 This would return with all of the fine tune models if this is not the first model.
 
-![Model List](C:\Training-ChatGPT\images\openai_list.png)
+![Model List](images/openai_list.png)
 
 But, to get information on a specific model use the following command in CMD/Terminal
 
@@ -226,7 +226,7 @@ openai api fine_tunes.get -i <YOUR_FINE_TUNE_JOB_ID>
 
 Replace with the specific model ID to get detailed information about that model.
 
-![Get Model](C:\Training-ChatGPT\images\openai-get.png)
+![Get Model](images/openai-get.png)
 
 Now finally to cancel a model use the following command in CMD/Terminal
 
@@ -296,7 +296,7 @@ openai api fine_tunes.results -i <YOUR_FINE_TUNE_JOB_ID>
 
 <YOUR_FINE_TUNE_JOB_ID> would be replace the mode ID
 
-![Results](C:\Training-ChatGPT\images\openai-results.png)
+![Results](images/openai-results.png)
 
 Every column name is written on the top. 
 
