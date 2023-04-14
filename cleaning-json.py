@@ -7,7 +7,7 @@ input_file = 'your_input_file.json'
 output_file = 'your_output_file.json'
 
 # Replace 'word1' and 'word2' with the words you want to remove
-words_to_remove = ['word1' 'word2']
+words_to_remove = ['word1', 'word2']
 
 # A recursive function to remove target words from the data
 def remove_words(obj, words):
