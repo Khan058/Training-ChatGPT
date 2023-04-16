@@ -134,6 +134,12 @@ export OPENAI_API_KEY="<OPENAI_API_KEY>"
 
 Just replace <OPENAI_API_KEY> with the key you got from Openai website. 
 
+## Setting Enviroment Variable
+
+You could also set the API key as your enviroment variable. 
+
+Put screenshots
+
 ## Step 2: Dataset
 
 This is one of the most important step as this step would decide how the fine tuned model would behave and perform.
@@ -192,11 +198,15 @@ openai api fine_tunes.create -t <TRAIN_FILE_ID_OR_PATH> -v <VALIDATION_FILE_ID_O
 
 Replace with training file name or path replace with the validation file name or path and finally replace with the model being used for fine tuning.
 
-At this stage it would create ID which would be used later alot. It would also inform the user about the cost of training and validation.
+At this stage it would create ID which would be used later alot. It would also inform the user about the cost of training and validation. You can also set the hyperparameters here like `model` `number of epochs` `batch size` `learning rate multiplier`. Check the advance section [Advance](#advance)
+
+
 
 This step takes alot of time.
 
 if for some reason the training is disrubted, it can restarted with the following command
+
+![Fine tune Creation](images/fine-tunning-step-2.png)
 
 ```bash
 openai api fine_tunes.follow -i <YOUR_FINE_TUNE_JOB_ID>
@@ -209,6 +219,8 @@ When the job is done, it should display the name of the fine-tuned model.
 In addition to creating a fine-tune job, you can also list existing jobs, retrieve the status of a job, or cancel a job.
 
 To check the list of fine tunes model use the following command in CMD/Terminal
+
+![Follow Command](images/fine-tunning-step-3.png)
 
 ```bash
 openai api fine_tunes.list
@@ -248,6 +260,8 @@ To check `fine_tuned_model` use
 openai api fine_tunes.get -i <YOUR_FINE_TUNE_JOB_ID>
 ```
 
+![Get](images/getstep.png)
+
 After completion it still may take a few minutes for the model to take prompts.
 
 The fine tuned model can be either used in `playground` visit [Playground](https://platform.openai.com/playground)
@@ -260,7 +274,9 @@ Open CMD/Terminal
 openai api completions.create -m <FINE_TUNED_MODEL> -p <YOUR_PROMPT>
 ```
 
-Replace the with the model ID of the trained model. The prompt goes into .
+Replace the with the model ID of the trained model. The prompt goes into  <YOUR_PROMPT>.
+
+![PROMPT](images/prompt.png)
 
 But at the same time the prompt can sent using the API through a python script `Prompt-Script` [Prompt Script](./Prompt-Script.py)
 
@@ -307,3 +323,19 @@ However I recomend to use the python script to get the results and save them in 
 You can get the result in csv file. Run the script `open-finetune-result.py` [Fine Tune Results](./openai-finetune-result.py)
 
 > Disclaimer: Change the API key with your own API Key. 
+
+## Advance
+
+You can customise the hyperparameters at the time to fine-tuning the model. 
+
+```bash
+openai api fine_tunes.create -t <TRAIN_FILE_ID_OR_PATH> -v <VALIDATION_FILE_ID_OR_PATH> -m <MODEL> --n_epochs <number of epochs>
+```
+
+--n_epochs: Changes the numbe epochs which is 4 as a default.
+
+--batch-size: Changes the batch size which is by default 1. 
+
+--learning_rate_multiplier: Changes the learning rate. You can keep the value between 0.02 to 0.2 for best results though you can experiment with different values. 
+
+For more details check the documentation at [OpenAI API](https://platform.openai.com/docs/guides/fine-tuning/advanced-usage)
