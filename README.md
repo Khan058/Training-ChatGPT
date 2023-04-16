@@ -339,3 +339,34 @@ openai api fine_tunes.create -t <TRAIN_FILE_ID_OR_PATH> -v <VALIDATION_FILE_ID_O
 --learning_rate_multiplier: Changes the learning rate. You can keep the value between 0.02 to 0.2 for best results though you can experiment with different values. 
 
 For more details check the documentation at [OpenAI API](https://platform.openai.com/docs/guides/fine-tuning/advanced-usage)
+
+## Classification Specific Metrics
+
+The model can also generate classifiction specific metrics in the results file. But you have to provide a validation file for it.  To enable this parameter put `--compute_classification_metrics`.
+
+### Two types of Classification
+
+There is multiclass classification for which you use `--classification_n_classes` 
+
+And Binary classification, you use `--classification_positive_class` 
+
+```bash
+openai api fine_tunes.create -t <TRAIN_FILE_ID_OR_PATH> 
+  -v <VALIDATION_FILE_OR_PATH> 
+  -m <MODEL> 
+  --compute_classification_metrics 
+  --classification_positive_class <POSITIVE_CLASS_FROM_DATASET>
+```
+
+OR
+
+```bash
+openai api fine_tunes.create 
+  -t <TRAIN_FILE_ID_OR_PATH> 
+  -v <VALIDATION_FILE_OR_PATH> 
+  -m <MODEL> 
+  --compute_classification_metrics 
+  --classification_n_classes <N_CLASSES>
+```
+
+You can further read on it at [OpenAI API](https://platform.openai.com/docs/guides/fine-tuning/classification-specific-metrics)
